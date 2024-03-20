@@ -26,6 +26,7 @@ jobs:
       #       cp image.tar workspace/ 
 
       - persist_to_workspace:
+          run: ls -l
           root: .
           paths:
             - ./image.tar
