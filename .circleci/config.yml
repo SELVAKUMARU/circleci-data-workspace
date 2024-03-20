@@ -18,22 +18,22 @@ jobs:
       - run:
           name: Archive Docker image
           command: docker save -o image.tar $IMAGE_NAME
-      - run:
-          name: New Directory
-          command: |
-            ls -l
-            mkdir -p workspace 
-            cp image.tar workspace/ 
+      # - run:
+      #     name: New Directory
+      #     command: |
+      #       ls -l
+      #       mkdir -p workspace 
+      #       cp image.tar workspace/ 
 
       - persist_to_workspace:
-          root: workspace
+          root: .
           paths:
-            - workspace/image.tar
+            - ./image.tar
   publish-latest:
     executor: docker-publisher
     steps:
       - attach_workspace:
-          at: workspace
+          at: /tmp/workspace
       - setup_remote_docker
       - run:
           name: Load archived Docker image
