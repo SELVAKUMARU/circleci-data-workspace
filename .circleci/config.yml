@@ -22,7 +22,6 @@ jobs:
             mkdir -p workspace
             ls -l
             cp image.tar workspace/
-            ls | grep workspace/image.tar
 
 
       # - run:
