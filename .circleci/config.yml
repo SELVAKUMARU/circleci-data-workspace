@@ -37,7 +37,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Load archived Docker image
-          command: docker load -i workspace/image.tar
+          command: docker load -i /tmp/workspace/image.tar
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
